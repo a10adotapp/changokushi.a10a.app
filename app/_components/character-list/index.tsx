@@ -2,6 +2,8 @@ import { countLikes } from "@/sqlc/query_sql";
 import { ListItem } from "./listitem";
 import { client } from "@/lib/db/client";
 
+export const dynamic = "force-dynamic";
+
 export type Character = {
   id: number;
   name: string;

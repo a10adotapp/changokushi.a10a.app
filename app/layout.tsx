@@ -11,6 +11,8 @@ import { Navbar } from "./_components/navbar";
 import { Footer } from "./_components/footer";
 import "./globals.css";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Changokushi | a10a.app",
 };
