@@ -14,7 +14,17 @@ import "./globals.css";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Changokushi | a10a.app",
+  title: "ちゃんごくし推し投票 | a10a.app",
+  description: "ちゃんごくし推し投票 | a10a.app",
+  openGraph: {
+    title: "ちゃんごくし推し投票 | a10a.app",
+    description: "ちゃんごくし推し投票 | a10a.app",
+  },
+  twitter: {
+    title: "ちゃんごくし推し投票 | a10a.app",
+    description: "ちゃんごくし推し投票 | a10a.app",
+    card: "summary",
+  },
 };
 
 export default async function Layout({
