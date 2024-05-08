@@ -5,6 +5,9 @@ export default withAuth(
   },
   {
     callbacks: {
+      authorized: ({ req, token }) => {
+        return true;
+      },
     },
   },
 );
