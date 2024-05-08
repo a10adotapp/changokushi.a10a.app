@@ -11,7 +11,7 @@ export async function createLike(characterId: number) {
   const session = await getServerSession(authOptions);
 
   if (!session) {
-    throw new Error("failed to read session");
+    throw new Error("投票するためにはログインしてください");
   }
 
   const likesCount = await countLikesByUser(client(), {

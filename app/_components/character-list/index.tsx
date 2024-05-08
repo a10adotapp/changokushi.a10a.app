@@ -1,25 +1,10 @@
-import { countLikes } from "@/sqlc/query_sql";
+import { countLikes, listCharacters } from "@/sqlc/query_sql";
 import { ListItem } from "./listitem";
 import { client } from "@/lib/db/client";
 
-export const dynamic = "force-dynamic";
+export async function CharacterList() {
+  const characters = await listCharacters(client());
 
-export type Character = {
-  id: number;
-  name: string;
-  imageUrl: string | null;
-  profileUrl: string | null;
-  bust: number | null;
-  waist: number | null;
-  hip: number | null;
-  height: number | null;
-};
-
-export async function CharacterList({
-  characters,
-}: {
-  characters: Character[];
-}) {
   const likes = await countLikes(client());
 
   const likesByCharacterId = likes.reduce<{

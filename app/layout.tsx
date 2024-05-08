@@ -11,8 +11,6 @@ import { Navbar } from "./_components/navbar";
 import { Footer } from "./_components/footer";
 import "./globals.css";
 
-export const dynamic = "force-dynamic";
-
 export const metadata: Metadata = {
   title: "ちゃんごくし推し投票 | a10a.app",
   description: "ちゃんごくし推し投票 | a10a.app",
@@ -44,12 +42,13 @@ export default async function Layout({
     <html>
       <body>
         <UserContextProvider defaultValue={{
+          hasSignedIn: !!session,
           likeCount: likesCount?.count || 0,
         }}>
           <div className="flex min-h-screen w-full flex-col bg-muted/40">
             <Navbar />
 
-            <div className="flex flex-col py-4 px-2">
+            <div className="flex flex-col grow py-4 px-2">
               {children}
             </div>
 

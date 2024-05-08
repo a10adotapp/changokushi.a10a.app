@@ -4,13 +4,23 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 
-import { Character } from ".";
 import { useCallback, useState } from "react";
 import { Loader2 } from "lucide-react";
 import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTrigger } from "@/components/ui/drawer";
 import { createLike } from "./create-like";
 import { useToast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
+
+export type Character = {
+  id: number;
+  name: string;
+  imageUrl: string | null;
+  profileUrl: string | null;
+  bust: number | null;
+  waist: number | null;
+  hip: number | null;
+  height: number | null;
+};
 
 export function ListItem({
   character,

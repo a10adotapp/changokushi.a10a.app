@@ -3,10 +3,12 @@
 import { ReactNode, createContext, useContext } from "react";
 
 export type UserContext = {
+  hasSignedIn: boolean;
   likeCount: number;
 };
 
 export const UserContext = createContext<UserContext>({
+  hasSignedIn: false,
   likeCount: 0,
 });
 

@@ -1,8 +1,6 @@
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 
-export const dynamic = "force-dynamic";
-
 export function Footer() {
   return (
     <div className="flex flex-col gap-4 p-4">
