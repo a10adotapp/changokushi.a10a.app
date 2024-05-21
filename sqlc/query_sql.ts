@@ -4,7 +4,7 @@ type Client = mysql.Connection | mysql.Pool;
 
 export const listCharactersQuery = `-- name: listCharacters :many
 SELECT
-  characters.id, characters.name, characters.image_url, characters.profile_url, characters.bust, characters.waist, characters.hip, characters.height,
+  characters.id, characters.name, characters.gif_url, characters.image_url, characters.profile_url, characters.bust, characters.waist, characters.hip, characters.height,
   chantama_characters.id, chantama_characters.character_id, chantama_characters.sense, chantama_characters.attack, chantama_characters.weapon, chantama_characters.vitality, chantama_characters.strength, chantama_characters.physical_defense, chantama_characters.magical_defense, chantama_characters.agility
 FROM
   characters
@@ -17,6 +17,7 @@ ORDER BY
 export interface listCharactersRow {
     id: number;
     name: string;
+    gifUrl: string | null;
     imageUrl: string | null;
     profileUrl: string | null;
     bust: number | null;
@@ -45,22 +46,23 @@ export async function listCharacters(client: Client): Promise<listCharactersRow[
         return {
             id: row[0],
             name: row[1],
-            imageUrl: row[2],
-            profileUrl: row[3],
-            bust: row[4],
-            waist: row[5],
-            hip: row[6],
-            height: row[7],
-            id_2: row[8],
-            characterId: row[9],
-            sense: row[10],
-            attack: row[11],
-            weapon: row[12],
-            vitality: row[13],
-            strength: row[14],
-            physicalDefense: row[15],
-            magicalDefense: row[16],
-            agility: row[17]
+            gifUrl: row[2],
+            imageUrl: row[3],
+            profileUrl: row[4],
+            bust: row[5],
+            waist: row[6],
+            hip: row[7],
+            height: row[8],
+            id_2: row[9],
+            characterId: row[10],
+            sense: row[11],
+            attack: row[12],
+            weapon: row[13],
+            vitality: row[14],
+            strength: row[15],
+            physicalDefense: row[16],
+            magicalDefense: row[17],
+            agility: row[18]
         };
     });
 }

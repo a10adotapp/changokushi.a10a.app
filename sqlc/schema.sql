@@ -2,6 +2,7 @@ CREATE TABLE characters
 (
   id INT unsigned NOT NULL AUTO_INCREMENT,
   name VARCHAR(191) NOT NULL,
+  gif_url TEXT DEFAULT NULL,
   image_url TEXT DEFAULT NULL,
   profile_url TEXT DEFAULT NULL,
   bust INT DEFAULT NULL,

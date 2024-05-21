@@ -10,10 +10,12 @@ import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, Dr
 import { createLike } from "./create-like";
 import { useToast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
+import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 
 export type Character = {
   id: number;
   name: string;
+  gifUrl: string | null;
   imageUrl: string | null;
   profileUrl: string | null;
   bust: number | null;
@@ -78,13 +80,59 @@ export function ListItem({
   const numberFormat = new Intl.NumberFormat();
 
   return (
-    <Card className="hover:bg-blue-200">
-      {character.imageUrl && (
-        <Image src={character.imageUrl} alt={character.name} width={200} height={200}
-          className="w-full h-32 object-contain" />
+    <Card className="hover:bg-blue-200" style={{
+      ...(character.imageUrl ? {
+        backgroundImage: `url(${character.imageUrl})`,
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+      } : {}),
+    }}>
+      {character.gifUrl && (
+        <Drawer>
+          <DrawerTrigger className="block w-full">
+            <Image src={character.gifUrl} alt={character.name} unoptimized
+              width={200} height={200}
+              className="w-full h-32 object-contain bg-white/75" />
+          </DrawerTrigger>
+          <DrawerContent className="pb-4">
+            <div className="flex flex-col gap-4">
+              {character.imageUrl && (
+                <div>
+                  <Image src={character.imageUrl} alt={character.name}
+                    width={400} height={400}
+                    className="w-full h-96 object-contain" />
+                </div>
+              )}
+
+
+              <div className="flex justify-center gap-4">
+                <Card>
+                  <CardContent>
+                    {character.height}
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardContent>
+                    {character.bust}
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardContent>
+                    {character.waist}
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardContent>
+                    {character.hip}
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </DrawerContent>
+        </Drawer>
       )}
 
-      <CardContent className="px-2">
+      <CardContent className="px-2 bg-white/75">
         <div className="flex justify-between items-center gap-2">
           <span className="font-bold">
             {character.name}
@@ -92,7 +140,7 @@ export function ListItem({
 
           <Drawer open={isOpen} onOpenChange={drawerOpenChange}>
             <DrawerTrigger asChild>
-              <Button variant="ghost" onClick={drawerTriggerButtonClick} className="flex gap-1">
+              <Button variant="outline" onClick={drawerTriggerButtonClick} className="flex gap-1">
                 <span>💕</span>
                 <span className="text-sm text-gray-400 font-bold">
                   {numberFormat.format(likeCount)}
