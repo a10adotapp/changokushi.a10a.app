@@ -107,23 +107,51 @@ export function ListItem({
 
               <div className="flex justify-center gap-4">
                 <Card>
-                  <CardContent>
-                    {character.height}
+                  <CardContent className="pb-0">
+                    <div className="flex flex-col">
+                      <div>
+                        {character.height}
+                      </div>
+                      <div className="flex justify-center text-gray-400 font-bold">
+                        H
+                      </div>
+                    </div>
                   </CardContent>
                 </Card>
                 <Card>
-                  <CardContent>
-                    {character.bust}
+                  <CardContent className="pb-0">
+                    <div className="flex flex-col">
+                      <div>
+                        {character.bust}
+                      </div>
+                      <div className="flex justify-center text-gray-400 font-bold">
+                        B
+                      </div>
+                    </div>
                   </CardContent>
                 </Card>
                 <Card>
-                  <CardContent>
-                    {character.waist}
+                  <CardContent className="pb-0">
+                    <div className="flex flex-col">
+                      <div>
+                        {character.waist}
+                      </div>
+                      <div className="flex justify-center text-gray-400 font-bold">
+                        W
+                      </div>
+                    </div>
                   </CardContent>
                 </Card>
                 <Card>
-                  <CardContent>
-                    {character.hip}
+                  <CardContent className="pb-0">
+                    <div className="flex flex-col">
+                      <div>
+                        {character.hip}
+                      </div>
+                      <div className="flex justify-center text-gray-400 font-bold">
+                        H
+                      </div>
+                    </div>
                   </CardContent>
                 </Card>
               </div>
