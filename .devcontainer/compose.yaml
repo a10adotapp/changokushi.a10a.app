@@ -1,0 +1,24 @@
+services:
+  app:
+    image: localhost/changokushi-a10a-app
+    build:
+      context: ../
+      dockerfile: ./.devcontainer/Dockerfile
+    container_name: changokushi-a10a-app
+    command: sleep infinity
+    volumes:
+      - ..:/workspace:cached
+    env_file:
+      - ./.env.local
+    ports:
+      - 3001:3000
+
+  db:
+    image: mysql:8.0.28
+    container_name: changokushi-a10a-app-db
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_TCP_PORT: 3306
+      MYSQL_DATABASE: "changokushi_a10a_app"
+    ports:
+      - 3306:3306
