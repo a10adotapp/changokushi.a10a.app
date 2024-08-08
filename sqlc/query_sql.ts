@@ -178,6 +178,43 @@ export async function listWeaponLog(client: Client): Promise<listWeaponLogRow[]>
     });
 }
 
+export const getWeaponLogByNameQuery = `-- name: getWeaponLogByName :one
+SELECT
+  weapon_logs.id, weapon_logs.name, weapon_logs.url
+FROM
+  weapon_logs
+WHERE
+  (name = ?)
+LIMIT
+  1`;
+
+export interface getWeaponLogByNameArgs {
+    name: string;
+}
+
+export interface getWeaponLogByNameRow {
+    id: number;
+    name: string;
+    url: string | null;
+}
+
+export async function getWeaponLogByName(client: Client, args: getWeaponLogByNameArgs): Promise<getWeaponLogByNameRow | null> {
+    const [rows] = await client.query<RowDataPacket[]>({
+        sql: getWeaponLogByNameQuery,
+        values: [args.name],
+        rowsAsArray: true
+    });
+    if (rows.length !== 1) {
+        return null;
+    }
+    const row = rows[0];
+    return {
+        id: row[0],
+        name: row[1],
+        url: row[2]
+    };
+}
+
 export const createWeaponLogQuery = `-- name: createWeaponLog :exec
 INSERT INTO
   weapon_logs

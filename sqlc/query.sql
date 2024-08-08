@@ -49,6 +49,17 @@ ORDER BY
   id DESC
 ;
 
+-- name: getWeaponLogByName :one
+SELECT
+  weapon_logs.*
+FROM
+  weapon_logs
+WHERE
+  (name = ?)
+LIMIT
+  1
+;
+
 -- name: createWeaponLog :exec
 INSERT INTO
   weapon_logs
