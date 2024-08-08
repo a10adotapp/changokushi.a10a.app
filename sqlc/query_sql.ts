@@ -149,3 +149,89 @@ export async function createLike(client: Client, args: createLikeArgs): Promise<
     });
 }
 
+export const listWeaponLogQuery = `-- name: listWeaponLog :many
+SELECT
+  weapon_logs.id, weapon_logs.name, weapon_logs.url
+FROM
+  weapon_logs
+ORDER BY
+  id DESC`;
+
+export interface listWeaponLogRow {
+    id: number;
+    name: string;
+    url: string | null;
+}
+
+export async function listWeaponLog(client: Client): Promise<listWeaponLogRow[]> {
+    const [rows] = await client.query<RowDataPacket[]>({
+        sql: listWeaponLogQuery,
+        values: [],
+        rowsAsArray: true
+    });
+    return rows.map(row => {
+        return {
+            id: row[0],
+            name: row[1],
+            url: row[2]
+        };
+    });
+}
+
+export const createWeaponLogQuery = `-- name: createWeaponLog :exec
+INSERT INTO
+  weapon_logs
+  (name)
+VALUES
+  (?)`;
+
+export interface createWeaponLogArgs {
+    name: string;
+}
+
+export async function createWeaponLog(client: Client, args: createWeaponLogArgs): Promise<void> {
+    await client.query({
+        sql: createWeaponLogQuery,
+        values: [args.name]
+    });
+}
+
+export const deleteWeaponLogQuery = `-- name: deleteWeaponLog :exec
+DELETE FROM
+  weapon_logs
+WHERE
+  (id = ?)`;
+
+export interface deleteWeaponLogArgs {
+    id: number;
+}
+
+export async function deleteWeaponLog(client: Client, args: deleteWeaponLogArgs): Promise<void> {
+    await client.query({
+        sql: deleteWeaponLogQuery,
+        values: [args.id]
+    });
+}
+
+export const updateWeaponLogQuery = `-- name: updateWeaponLog :exec
+UPDATE
+  weapon_logs
+SET
+  name = ?,
+  url = ?
+WHERE
+  (id = ?)`;
+
+export interface updateWeaponLogArgs {
+    name: string;
+    url: string | null;
+    id: number;
+}
+
+export async function updateWeaponLog(client: Client, args: updateWeaponLogArgs): Promise<void> {
+    await client.query({
+        sql: updateWeaponLogQuery,
+        values: [args.name, args.url, args.id]
+    });
+}
+

@@ -39,3 +39,37 @@ INSERT INTO
 VALUES
   (?, ?, NOW())
 ;
+
+-- name: listWeaponLog :many
+SELECT
+  weapon_logs.*
+FROM
+  weapon_logs
+ORDER BY
+  id DESC
+;
+
+-- name: createWeaponLog :exec
+INSERT INTO
+  weapon_logs
+  (name)
+VALUES
+  (?)
+;
+
+-- name: deleteWeaponLog :exec
+DELETE FROM
+  weapon_logs
+WHERE
+  (id = ?)
+;
+
+-- name: updateWeaponLog :exec
+UPDATE
+  weapon_logs
+SET
+  name = sqlc.arg(name),
+  url = sqlc.arg(url)
+WHERE
+  (id = ?)
+;

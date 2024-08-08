@@ -40,3 +40,12 @@ CREATE TABLE chantama_characters
   PRIMARY KEY (id)
 )
 ;
+
+CREATE TABLE weapon_logs
+(
+  id INT unsigned NOT NULL AUTO_INCREMENT,
+  name VARCHAR(191) NOT NULL,
+  url TEXT DEFAULT NULL,
+  PRIMARY KEY (id)
+)
+;

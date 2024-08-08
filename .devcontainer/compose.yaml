@@ -19,6 +19,6 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: "root"
       MYSQL_TCP_PORT: 3306
-      MYSQL_DATABASE: "changokushi_a10a_app"
+      MYSQL_DATABASE: "changokushi_a10a_app_dev"
     ports:
       - 3306:3306
