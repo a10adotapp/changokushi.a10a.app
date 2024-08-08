@@ -5,4 +5,9 @@
   "editor.formatOnSaveMode": "file",
   "editor.tabSize": 2,
   "files.insertFinalNewline": true,
+  "[typescript][typescriptreact]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    }
+  }
 }

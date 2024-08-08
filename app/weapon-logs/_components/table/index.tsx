@@ -5,12 +5,11 @@ import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger } from 
 import { Input } from "@/components/ui/input";
 import { TableBody, TableCell, TableHead, TableRow, Table as UITable } from "@/components/ui/table";
 import { useToast } from "@/components/ui/use-toast";
-import { client } from "@/lib/db/client";
 import { listWeaponLogRow } from "@/sqlc/query_sql";
+import { useRouter } from "next/navigation";
 import { ChangeEvent, useMemo, useRef, useState } from "react";
 import { registerWeaponLog } from "./_actions/register-weapon-log";
 import { unregisterWeaponLog } from "./_actions/unregister-weapon-log";
-import { useRouter } from "next/navigation";
 import { updateWeaponLogUrl } from "./_actions/update-weapon-log-url";
 
 export function Table({
@@ -54,7 +53,7 @@ export function Table({
         }
       };
     };
-  }, []);
+  }, [router, toast]);
 
   const registerButtonClick = useMemo(() => {
     return (weaponName: string) => {
@@ -80,7 +79,7 @@ export function Table({
         }
       };
     };
-  }, []);
+  }, [router, toast]);
 
   const unregisterButtonClick = useMemo(() => {
     return (weaponLog: listWeaponLogRow) => {
@@ -106,7 +105,7 @@ export function Table({
         }
       };
     };
-  }, []);
+  }, [router, toast]);
 
   const urlFieldChange = useMemo(() => {
     return (id: number) => {
@@ -140,7 +139,7 @@ export function Table({
         }
       };
     };
-  }, []);
+  }, [router, toast]);
 
   return (
     <UITable>

@@ -5,10 +5,12 @@
   "workspaceFolder": "/workspace",
   "customizations": {
     "vscode": {
-      "extensions": [],
       "settings": {
         "remote.autoForwardPorts": false
-      }
+      },
+      "extensions": [
+        "dbaeumer.vscode-eslint"
+      ]
     }
   },
   "postStartCommand": "npm i -g npm"
