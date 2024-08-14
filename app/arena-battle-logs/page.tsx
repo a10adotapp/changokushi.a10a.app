@@ -4,6 +4,8 @@ import Link from "next/link";
 import { listArenaBattleLog } from "./_actions/list-arena-battle-log";
 import { Table } from "./_components/table";
 
+export const dynamic = "force-dynamic";
+
 export default async function Page() {
   const arenaBattleLogs = await listArenaBattleLog();
 
