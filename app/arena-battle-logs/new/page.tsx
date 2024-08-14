@@ -4,6 +4,8 @@ import Link from "next/link";
 import { getLastArenaBattleLog } from "./_actions/get-last-arena-battle-log";
 import { Form } from "./_components/form";
 
+export const dynamic = "force-dynamic";
+
 export default async function Page() {
   const lastArenaBattleLog = await getLastArenaBattleLog();
 
