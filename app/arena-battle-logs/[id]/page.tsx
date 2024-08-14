@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Toaster } from "@/components/ui/toaster";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { z } from "zod";
@@ -52,8 +51,6 @@ export default async function Page({
           <UpdateForm arenaBattleLog={arenaBattleLog} />
         </CardContent>
       </Card>
-
-      <Toaster />
     </div>
   );
 }

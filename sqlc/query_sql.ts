@@ -480,8 +480,8 @@ SELECT
   ) AS max_result_point`;
 
 export interface getArenaBattleLogApproximateResultPointArgs {
-    opponentPower: number;
-    opponentPower: number;
+    opponentPower_1: number;
+    opponentPower_2: number;
 }
 
 export interface getArenaBattleLogApproximateResultPointRow {
@@ -492,7 +492,7 @@ export interface getArenaBattleLogApproximateResultPointRow {
 export async function getArenaBattleLogApproximateResultPoint(client: Client, args: getArenaBattleLogApproximateResultPointArgs): Promise<getArenaBattleLogApproximateResultPointRow | null> {
     const [rows] = await client.query<RowDataPacket[]>({
         sql: getArenaBattleLogApproximateResultPointQuery,
-        values: [args.opponentPower, args.opponentPower],
+        values: [args.opponentPower_1, args.opponentPower_2],
         rowsAsArray: true
     });
     if (rows.length !== 1) {

@@ -1,15 +1,14 @@
-import type { Metadata } from "next";
-import { getServerSession } from "next-auth";
-import { countLikesByUser } from "@/sqlc/query_sql";
-import { client } from "@/lib/db/client";
+import { UserContextProvider } from "@/components/user-context-provider";
+import { authOptions } from "@/lib/auth/auth-options";
 import { today } from "@/lib/datetime/today";
 import { tomorrow } from "@/lib/datetime/tomorrow";
-import { authOptions } from "@/lib/auth/auth-options";
-import { Toaster } from "@/components/ui/toaster"
-import { UserContextProvider } from "@/components/user-context-provider";
-import { Navbar } from "./_components/navbar";
-import { Footer } from "./_components/footer";
+import { client } from "@/lib/db/client";
+import { countLikesByUser } from "@/sqlc/query_sql";
+import type { Metadata } from "next";
+import { getServerSession } from "next-auth";
 import { CharacterList } from "./_components/character-list";
+import { Footer } from "./_components/footer";
+import { Navbar } from "./_components/navbar";
 
 export const metadata: Metadata = {
   title: "ちゃんごくし推し投票 | a10a.app",
@@ -48,8 +47,6 @@ export default async function Page() {
 
         <Footer />
       </div>
-
-      <Toaster />
     </UserContextProvider>
   );
 }

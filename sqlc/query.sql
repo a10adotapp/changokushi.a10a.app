@@ -150,7 +150,7 @@ SELECT
     FROM
       arena_battle_logs AS t1
     WHERE
-      (t1.opponent_power <= sqlc.arg(opponent_power))
+      (t1.opponent_power <= sqlc.arg(opponent_power_1))
     ORDER BY
       t1.opponent_power DESC
     LIMIT 1
@@ -161,7 +161,7 @@ SELECT
     FROM
       arena_battle_logs AS t2
     WHERE
-      (t2.opponent_power >= sqlc.arg(opponent_power))
+      (t2.opponent_power >= sqlc.arg(opponent_power_2))
     ORDER BY
       t2.opponent_power ASC
     LIMIT 1

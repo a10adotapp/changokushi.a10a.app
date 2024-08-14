@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Toaster } from "@/components/ui/toaster";
 import Link from "next/link";
 import { listArenaBattleLog } from "./_actions/list-arena-battle-log";
 import { Table } from "./_components/table";
@@ -27,8 +26,6 @@ export default async function Page() {
           <Table arenaBattleLogs={arenaBattleLogs} />
         </CardContent>
       </Card>
-
-      <Toaster />
     </div>
   );
 }

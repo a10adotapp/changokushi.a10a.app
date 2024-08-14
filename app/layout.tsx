@@ -1,3 +1,4 @@
+import { Toaster } from "@/components/ui/toaster";
 import { Viewport } from "next";
 import "./globals.css";
 
@@ -18,6 +19,8 @@ export default async function Layout({
     <html>
       <body>
         {children}
+
+        <Toaster />
       </body>
     </html>
   );

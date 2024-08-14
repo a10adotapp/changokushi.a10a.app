@@ -10,7 +10,8 @@ export async function getApproximateResultPoint(
   max: number;
 }> {
   const approximateResultPoint = await getArenaBattleLogApproximateResultPoint(client(), {
-    opponentPower,
+    opponentPower_1: opponentPower,
+    opponentPower_2: opponentPower,
   });
 
   if (!approximateResultPoint) {

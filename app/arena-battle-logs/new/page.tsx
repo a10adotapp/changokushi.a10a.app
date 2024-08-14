@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Toaster } from "@/components/ui/toaster";
 import Link from "next/link";
 import { getLastArenaBattleLog } from "./_actions/get-last-arena-battle-log";
 import { Form } from "./_components/form";
@@ -27,8 +26,6 @@ export default async function Page() {
           <Form lastArenaBattleLog={lastArenaBattleLog} />
         </CardContent>
       </Card>
-
-      <Toaster />
     </div>
   );
 }

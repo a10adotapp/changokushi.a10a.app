@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Toaster } from "@/components/ui/toaster";
 import Link from "next/link";
 import { z } from "zod";
 import { getWeapon } from "./_actions/get-weapon";
@@ -89,8 +88,6 @@ export default async function Page({
           ) : null}
         </CardContent>
       </Card>
-
-      <Toaster />
     </div>
   )
 }

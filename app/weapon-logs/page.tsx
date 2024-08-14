@@ -1,5 +1,4 @@
 import { Card } from "@/components/ui/card";
-import { Toaster } from "@/components/ui/toaster";
 import { client } from "@/lib/db/client";
 import { listWeaponLog } from "@/sqlc/query_sql";
 import { Table } from "./_components/table";
@@ -68,8 +67,6 @@ export default async function Page() {
           suffixes={suffixes}
           weaponLogs={weaponLogs} />
       </Card>
-
-      <Toaster />
     </div>
   );
 }
