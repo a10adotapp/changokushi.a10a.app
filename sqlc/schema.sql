@@ -49,3 +49,15 @@ CREATE TABLE weapon_logs
   PRIMARY KEY (id)
 )
 ;
+
+CREATE TABLE arena_battle_logs
+(
+  id INT unsigned NOT NULL AUTO_INCREMENT,
+  point INT NOT NULL DEFAULT 0,
+  power INT NOT NULL DEFAULT 0,
+  opponent_point INT NOT NULL DEFAULT 0,
+  opponent_power INT NOT NULL DEFAULT 0,
+  result_point INT NOT NULL DEFAULT 0,
+  PRIMARY KEY (id)
+)
+;

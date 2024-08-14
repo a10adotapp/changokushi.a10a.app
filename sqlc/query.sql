@@ -84,3 +84,86 @@ SET
 WHERE
   (id = ?)
 ;
+
+-- name: createArenaBattleLog :exec
+INSERT INTO
+  arena_battle_logs
+  (point, power, opponent_point, opponent_power, result_point)
+VALUES
+  (?, ?, ?, ?, ?)
+;
+
+-- name: updateArenaBattleLog :exec
+UPDATE
+  arena_battle_logs
+SET
+  point = sqlc.arg(point),
+  power = sqlc.arg(power),
+  opponent_point = sqlc.arg(opponent_point),
+  opponent_power = sqlc.arg(opponent_power),
+  result_point = sqlc.arg(result_point)
+WHERE
+  (id = ?)
+;
+
+-- name: deleteArenaBattleLog :exec
+DELETE FROM
+  arena_battle_logs
+WHERE
+  (id = ?)
+;
+
+-- name: listArenaBattleLog :many
+SELECT
+  arena_battle_logs.*
+FROM
+  arena_battle_logs
+ORDER BY
+  id DESC
+;
+
+-- name: getArenaBattleLog :one
+SELECT
+  arena_battle_logs.*
+FROM
+  arena_battle_logs
+WHERE
+  (id = ?)
+LIMIT 1
+;
+
+-- name: getLastArenaBattleLog :one
+SELECT
+  arena_battle_logs.*
+FROM
+  arena_battle_logs
+ORDER BY
+  id DESC
+LIMIT 1
+;
+
+-- name: getArenaBattleLogApproximateResultPoint :one
+SELECT
+  (
+    SELECT
+      t1.result_point
+    FROM
+      arena_battle_logs AS t1
+    WHERE
+      (t1.opponent_power <= sqlc.arg(opponent_power))
+    ORDER BY
+      t1.opponent_power DESC
+    LIMIT 1
+  ) AS min_result_point,
+  (
+    SELECT
+      t2.result_point
+    FROM
+      arena_battle_logs AS t2
+    WHERE
+      (t2.opponent_power >= sqlc.arg(opponent_power))
+    ORDER BY
+      t2.opponent_power ASC
+    LIMIT 1
+  ) AS max_result_point
+;
