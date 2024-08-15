@@ -69,6 +69,7 @@ export function Form({
         title: "保存しました",
       });
 
+      router.push("/arena-battle-logs");
       router.refresh();
     } catch (err) {
       toast({
