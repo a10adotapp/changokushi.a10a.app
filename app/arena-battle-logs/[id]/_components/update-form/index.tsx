@@ -81,7 +81,9 @@ export function UpdateForm({
               <FormItem>
                 <FormLabel>Point</FormLabel>
                 <FormControl>
-                  <Input {...field} />
+                  <Input
+                    {...field}
+                    inputMode="numeric" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -94,7 +96,9 @@ export function UpdateForm({
               <FormItem>
                 <FormLabel>Power</FormLabel>
                 <FormControl>
-                  <Input {...field} />
+                  <Input
+                    {...field}
+                    inputMode="numeric" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -109,7 +113,9 @@ export function UpdateForm({
               <FormItem>
                 <FormLabel>Opponent Point</FormLabel>
                 <FormControl>
-                  <Input {...field} />
+                  <Input
+                    {...field}
+                    inputMode="numeric" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -122,7 +128,9 @@ export function UpdateForm({
               <FormItem>
                 <FormLabel>Opponent Power</FormLabel>
                 <FormControl>
-                  <Input {...field} />
+                  <Input
+                    {...field}
+                    inputMode="numeric" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -139,6 +147,7 @@ export function UpdateForm({
                 <FormControl>
                   <Input
                     {...field}
+                    inputMode="numeric"
                     placeholder={resultPointPlaceholder} />
                 </FormControl>
                 <FormMessage />

@@ -119,7 +119,9 @@ export function Form({
               <FormItem>
                 <FormLabel>Point</FormLabel>
                 <FormControl>
-                  <Input {...field} />
+                  <Input
+                    {...field}
+                    inputMode="numeric" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -132,7 +134,9 @@ export function Form({
               <FormItem>
                 <FormLabel>Power</FormLabel>
                 <FormControl>
-                  <Input {...field} />
+                  <Input
+                    {...field}
+                    inputMode="numeric" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -147,7 +151,10 @@ export function Form({
               <FormItem>
                 <FormLabel>Opponent Point</FormLabel>
                 <FormControl>
-                  <Input {...field} />
+                  <Input
+                    {...field}
+                    inputMode="numeric"
+                    autoFocus={true} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -160,7 +167,9 @@ export function Form({
               <FormItem>
                 <FormLabel>Opponent Power</FormLabel>
                 <FormControl>
-                  <Input {...field} />
+                  <Input
+                    {...field}
+                    inputMode="numeric" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -177,6 +186,7 @@ export function Form({
                 <FormControl>
                   <Input
                     {...field}
+                    inputMode="numeric"
                     placeholder={resultPointPlaceholder} />
                 </FormControl>
                 <FormMessage />
