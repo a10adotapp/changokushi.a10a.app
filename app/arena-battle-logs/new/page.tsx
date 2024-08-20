@@ -12,9 +12,7 @@ export default async function Page() {
   return (
     <div className="p-4">
       <Card>
-        <CardHeader />
-
-        <CardContent>
+        <CardHeader>
           <div className="flex gap-2">
             <Button asChild variant="outline">
               <Link href="/arena-battle-logs">
@@ -22,9 +20,11 @@ export default async function Page() {
               </Link>
             </Button>
           </div>
+        </CardHeader>
 
-          <hr className="my-4" />
+        <hr className="mb-4" />
 
+        <CardContent>
           <Form lastArenaBattleLog={lastArenaBattleLog} />
         </CardContent>
       </Card>

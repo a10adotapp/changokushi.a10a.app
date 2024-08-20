@@ -29,9 +29,7 @@ export default async function Page({
   return (
     <div className="p-4">
       <Card>
-        <CardHeader />
-
-        <CardContent>
+        <CardHeader>
           <div className="flex justify-between gap-2">
             <div className="flex gap-2">
               <Button asChild variant="outline">
@@ -45,9 +43,11 @@ export default async function Page({
               <DeleteButton id={arenaBattleLog.id} />
             </div>
           </div>
+        </CardHeader>
 
-          <hr className="my-4" />
+        <hr className="mb-4" />
 
+        <CardContent>
           <UpdateForm arenaBattleLog={arenaBattleLog} />
         </CardContent>
       </Card>
